@@ -15,9 +15,7 @@ oheco 是一个面向 OpenHarmony 开源生态建设的 GitHub 组织。我们�
 | [oheco-packages](https://github.com/oheco/oheco-packages) | 维护软件描述、版本信息和下载索引 |
 | [参与生态建设](https://github.com/oheco/.github/blob/main/CONTRIBUTING.md) | 申请适配和维护一个开源项目 |
 
-组织面向 OpenHarmony 生态持续扩展；**当前包管理器首版支持 HarmonyOS arm64，软件包平台标识为 `ohos-arm64`**。具体软件的支持范围以下载站和项目说明为准。
-
-> 发布状态（2026-09-11 检查）：公开安装脚本和软件索引目前返回 404。以下安装与下载步骤在组织完成首次 GitHub Release 和 GitHub Pages 发布后可用。
+组织面向 OpenHarmony 生态持续扩展；**当前包管理器支持 HarmonyOS arm64，软件包平台标识为 `ohos-arm64`**。具体软件的支持范围以下载站和项目说明为准。
 
 ## 安装 oheco
 
@@ -36,7 +34,7 @@ export PATH="$HOME/.oheco/bin:$PATH"
 oo --version
 ```
 
-如果设置了自定义安装目录 `OHECO_ROOT`，请按安装脚本输出设置 `PATH`，并在后续终端中保留相同的 `OHECO_ROOT` 配置。
+使用自定义安装目录时，请先在 zsh 配置文件中添加 `export OHECO_ROOT="/实际安装目录的绝对路径"`，加载配置后再执行安装命令。安装器会配置对应的 `PATH`；后续终端也需要保留该 `OHECO_ROOT` 配置，才能管理同一目录中的软件。
 
 ## 案例：下载并安装 Go
 
@@ -50,7 +48,7 @@ oo search go
 oo info go
 ```
 
-`oo update` 将远端软件索引同步到本地；`oo search go` 查找相关软件；`oo info go` 查看 Go 的可用版本、下载地址和软件说明。可用版本以发布后的索引为准。
+`oo update` 将远端软件索引同步到本地；`oo search go` 查找相关软件；`oo info go` 查看 Go 的可用版本、下载地址和软件说明。可用版本以最新索引为准。
 
 ### 2. 下载并安装
 
@@ -60,10 +58,10 @@ oo install go
 
 这条命令会下载当前平台在索引中标记为最新的 Go 发行包，校验文件大小和 SHA-256，解压到 `~/.oheco/packages/go/<版本>/`，并启用该版本的 `go` 和 `gofmt` 命令。
 
-也可以指定版本。例如，索引收录 `1.27.1` 后，可以执行：
+也可以指定包版本。Go 的鸿蒙适配包 `1.27.1-ohos.1` 对应上游 Go `1.27.1`：
 
 ```zsh
-oo install go@1.27.1
+oo install go@1.27.1-ohos.1
 ```
 
 ### 3. 确认安装结果
@@ -75,7 +73,7 @@ oo list
 
 `go version` 显示已启用的 Go 版本；`oo list` 列出已安装的软件和版本，其中 `*` 表示当前启用的版本。
 
-安装 Go 工具链后，编译新程序还需要宿主 `PATH` 中的 `binary-sign-tool`；使用 cgo 还需要 OHOS LLVM/SDK，并按项目说明设置可写的 `TMPDIR`。具体要求见 [Go 适配仓库](https://github.com/oheco/go)。
+安装 Go 工具链后，编译新程序还需要宿主 `PATH` 中的 `binary-sign-tool`，可通过 `oo install ohos-sdk-toolchains` 安装；使用 cgo 还需要 OHOS LLVM/SDK，可通过 `oo install ohos-sdk-native` 安装。请按 [Go 适配说明](https://github.com/oheco/go/blob/go1.27.1-ohos.1/misc/harmony/README.md)配置工具链，并将 `TMPDIR` 指向当前应用的私有可写目录。这些依赖需要单独安装。
 
 ### 只下载软件包
 
@@ -91,13 +89,13 @@ oo list
 | `oo search` | 浏览索引中的软件 |
 | `oo info go` | 查看 Go 的版本和详情 |
 | `oo install go` | 安装并启用索引为当前平台指定的最新 Go 版本 |
-| `oo install go@1.27.1 --no-switch` | 安装指定版本，保留当前启用状态 |
-| `oo switch go 1.27.1` | 切换到已安装的指定版本 |
-| `go@1.27.1 version` | 直接调用已安装的指定 Go 版本 |
+| `oo install go@1.27.1-ohos.1 --no-switch` | 安装指定版本，保留当前启用状态 |
+| `oo switch go 1.27.1-ohos.1` | 切换到已安装的指定版本 |
+| `go@1.27.1-ohos.1 version` | 直接调用已安装的指定 Go 版本 |
 | `oo list` | 查看已安装软件与当前启用版本 |
-| `oo remove go@1.27.1` | 卸载指定版本 |
+| `oo remove go@1.27.1-ohos.1` | 卸载指定版本 |
 | `oo remove go --all` | 卸载 Go 的全部已安装版本 |
-| `oo install oheco` | 安装并启用索引中最新的 oheco 包管理器 |
+| `oo update && oo install oheco` | 更新索引并安装、启用最新的 oheco 包管理器 |
 | `oo --help` | 查看命令帮助 |
 
 `oo update` 只更新目录，不升级已安装的软件。要获取新版软件，先执行 `oo update`，再执行 `oo install <包名>`。切换版本只对已安装版本生效；卸载当前启用版本后，需要手动切换到其他已安装版本。

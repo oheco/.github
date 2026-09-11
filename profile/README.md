@@ -119,3 +119,5 @@ oo list
 | 项目 | 维护者 |
 | --- | --- |
 | [oheco](https://github.com/oheco/oheco) | Guo Wei（[@kdada](https://github.com/kdada)） |
+| [ohos-sdk](https://github.com/oheco/ohos-sdk) | Guo Wei（[@kdada](https://github.com/kdada)） |
+| [go](https://github.com/oheco/go) | Guo Wei（[@kdada](https://github.com/kdada)） |

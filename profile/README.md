@@ -19,6 +19,11 @@ oheco 是一个面向 OpenHarmony 开源生态建设的 GitHub 组织。我们�
 
 ## 安装 oheco
 
+**安装 oheco 前，请先完成以下系统设置：**
+
+1. **开启开发者模式**：前往“设置 → 关于本机 → 软件版本”，连续点击 7 次，打开开发者模式。
+2. **允许运行来自非应用市场的扩展程序**：前往“设置 → 隐私和安全 → 高级 → 运行来自非应用市场的扩展程序”，开启该选项。
+
 在 **HarmonyOS 原生 zsh 终端**中执行安装命令。安装器会检查宿主系统与架构，请勿在 Linux 子系统中运行。
 
 安装需要能够访问 GitHub Releases 和下载站，并具备 `curl`、`tar`、`sha256sum`（或 `shasum`）及基础文件命令；无需预先安装 Go、Git 或 jq。
@@ -111,11 +116,3 @@ oo list
 | 姓名 | GitHub |
 | --- | --- |
 | Guo Wei | [@kdada](https://github.com/kdada) |
-
-### 开源项目维护者
-
-| 项目 | 维护者 |
-| --- | --- |
-| [oheco](https://github.com/oheco/oheco) | Guo Wei（[@kdada](https://github.com/kdada)） |
-| [ohos-sdk](https://github.com/oheco/ohos-sdk) | Guo Wei（[@kdada](https://github.com/kdada)） |
-| [go](https://github.com/oheco/go) | Guo Wei（[@kdada](https://github.com/kdada)） |

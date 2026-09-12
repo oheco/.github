@@ -86,4 +86,4 @@ oo install <包名>
 
 项目维护者继续跟进用户问题、上游更新和系统兼容性。需要发布新版本时，明确新的上游 Release 或适配修订版本，完成适配与验证后，再通知组织维护者打包和更新软件目录。
 
-当前项目维护者名单见[组织主页中的维护者列表](https://github.com/oheco/.github/blob/main/profile/README.md#维护者)。
+各项目的维护信息见对应仓库说明及[软件下载站](https://oheco.github.io/oheco-packages/)中的软件详情。

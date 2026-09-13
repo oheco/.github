@@ -24,7 +24,7 @@ oheco 是一个面向 OpenHarmony 开源生态建设的 GitHub 组织。我们�
 1. **开启开发者模式**：前往“设置 → 关于本机 → 软件版本”，连续点击 7 次，打开开发者模式。
 2. **允许运行来自非应用市场的扩展程序**：前往“设置 → 隐私和安全 → 高级 → 运行来自非应用市场的扩展程序”，开启该选项。
 
-在 **HarmonyOS 原生 zsh 终端**中执行安装命令。安装器会检查宿主系统与架构，请勿在 Linux 子系统中运行。
+请在 **HarmonyOS 原生 zsh 终端**中执行安装命令；安装器会检查系统类型与架构。
 
 安装需要能够访问 GitHub Releases 和下载站，并具备 `curl`、`tar`、`sha256sum`（或 `shasum`）及基础文件命令；无需预先安装 Go、Git 或 jq。
 
@@ -78,7 +78,7 @@ oo list
 
 `go version` 显示已启用的 Go 版本；`oo list` 列出已安装的软件和版本，其中 `*` 表示当前启用的版本。
 
-安装 Go 工具链后，编译新程序还需要宿主 `PATH` 中的 `binary-sign-tool`，可通过 `oo install ohos-sdk-toolchains` 安装；使用 cgo 还需要 OHOS LLVM/SDK，可通过 `oo install ohos-sdk-native` 安装。请按 [Go 适配说明](https://github.com/oheco/go/blob/go1.27.1-ohos.1/misc/harmony/README.md)配置工具链，并将 `TMPDIR` 指向当前应用的私有可写目录。这些依赖需要单独安装。
+安装 Go 工具链后，编译新程序还需要 `PATH` 中的 `binary-sign-tool`（由 `ohos-sdk-toolchains` 包提供，可用 `oo install ohos-sdk-toolchains` 安装）；使用 cgo 还需要 OHOS LLVM/SDK，可通过 `oo install ohos-sdk-native` 安装。请按 [Go 适配说明](https://github.com/oheco/go/blob/go1.27.1-ohos.1/misc/harmony/README.md)配置工具链，并将 `TMPDIR` 指向当前应用的私有可写目录。这些依赖需要单独安装。
 
 ### 只下载软件包
 

@@ -2,6 +2,7 @@
 
 oheco 致力于 OpenHarmony 开源生态建设，将开源软件移植到 OpenHarmony 与 HarmonyOS，并通过统一的软件目录和包管理器提供给用户。
 
+- [oheco 官网与软件下载站](https://oheco.org/)：浏览软件、下载发行包及获取安装命令。
 - [组织介绍与使用指南](profile/README.md)：如何安装 oheco，以及以 Go 为例下载、安装和管理软件。
 - [参与生态建设](CONTRIBUTING.md)：如何申请维护项目、开展适配，以及完成打包发布。
 

@@ -11,7 +11,7 @@ oheco 是一个面向 OpenHarmony 开源生态建设的 GitHub 组织。我们�
 | 入口 | 用途 |
 | --- | --- |
 | [oheco 包管理器](https://github.com/oheco/oheco) | 命令名为 `oo`，用于安装和管理原生软件包 |
-| [软件下载站](https://oheco.github.io/oheco-packages/) | 浏览软件、选择版本、获取下载链接与安装命令 |
+| [软件下载站](https://oheco.org/) | 浏览软件、选择版本、获取下载链接与安装命令 |
 | [oheco-packages](https://github.com/oheco/oheco-packages) | 维护软件描述、版本信息和下载索引 |
 | [参与生态建设](https://github.com/oheco/.github/blob/main/CONTRIBUTING.md) | 申请适配和维护一个开源项目 |
 
@@ -29,7 +29,7 @@ oheco 是一个面向 OpenHarmony 开源生态建设的 GitHub 组织。我们�
 安装需要能够访问 GitHub Releases 和下载站，并具备 `curl`、`tar`、`sha256sum`（或 `shasum`）及基础文件命令；无需预先安装 Go、Git 或 jq。
 
 ```zsh
-curl -fsSL https://oheco.github.io/oheco-packages/install.sh | zsh
+curl -fsSL https://oheco.org/install.sh | zsh
 ```
 
 默认安装目录为 `~/.oheco`。安装脚本会向 zsh 配置文件（通常为 `~/.zshrc`）添加命令路径。安装成功后，重新打开终端，或者在当前终端执行：
@@ -82,7 +82,7 @@ oo list
 
 ### 只下载软件包
 
-如果希望自行保存发行包，可在[软件下载站](https://oheco.github.io/oheco-packages/)搜索 `go`，选择版本，点击“下载软件包”，并展开 SHA-256 信息用于核验文件。也可以直接打开 [Go Releases](https://github.com/oheco/go/releases)，在对应版本的 Assets 中下载适配包，例如 `go1.27.1.ohos-arm64.tar.gz`。
+如果希望自行保存发行包，可在[软件下载站](https://oheco.org/)搜索 `go`，选择版本，点击“下载软件包”，并展开 SHA-256 信息用于核验文件。也可以直接打开 [Go Releases](https://github.com/oheco/go/releases)，在对应版本的 Assets 中下载适配包，例如 `go1.27.1.ohos-arm64.tar.gz`。
 
 下载预编译软件时请选择适配包；GitHub 自动提供的 `Source code` 是源码归档。浏览器下载后，软件尚未安装，也不会自动配置命令路径；希望自动完成这些步骤时，使用 `oo install go`。
 
